@@ -15,7 +15,7 @@ Some example project ideas from previous classes:
 
 ## Requirements:
 
-1. You should have least five models. You do not have to have all of these built out on day one. But by the end of the week, you should have at least five models.
+1. You should have at least five models. You do not have to have all of these built out on day one. But by the end of the week, you should have at least five models.
 
 2. Some methods in your models. There should be at least twenty methods total in your models. These are to be used to better extract data from your tables. Think Flatiron BnB Lab
 
@@ -28,10 +28,10 @@ Some example project ideas from previous classes:
 6. No JavaScript. Stay focused on Rails for this project - we'll have plenty of time this semeseter to cover JS topics. 
 
 ## Project Task Guidelines
-- come up with idea, model out domain. 
-- add model tests, start building out basic features. Have some functionality built out by the end of the day. 
+- Come up with an idea, model out domain. 
+- Add model tests, start building out basic features. Have some functionality built out by the end of the day. 
 - Iterate on the features that you built yesterday. Go from a 'skateboard' version to a scooter or a bicycle. It doesnt' have to be perfect, but it should be working. 
-- start styling/ cleaning up issues. 
-- issue cleanup and final demos. 
+- Start styling/ cleaning up issues. 
+- Issue cleanup and final demos. 
 
 
