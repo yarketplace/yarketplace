@@ -26,11 +26,12 @@ Some example project ideas from previous classes:
 
 6. No JavaScript. Stay focused on Rails for this project - we'll have plenty of time this semeseter to cover JS topics. 
 
-## Project Task Guidelines
-- Come up with an idea, model out domain. 
-- Add model tests, start building out basic features. Have some functionality built out by the end of the day. 
-- Iterate on the features that you built yesterday. Go from a 'skateboard' version to a scooter or a bicycle. It doesnt' have to be perfect, but it should be working. 
-- Start styling/ cleaning up issues. 
-- Issue cleanup and final demos. 
+## Project Task Steps
+- Come up with an idea, model out your domain. Get your project pitch approved.
+- Build your skateboard, with tests.
+- Build out more features.  With tests.
+- Start styling and cleaning up issues. 
+- Present to your cohort!
+- Profit.
 
 
