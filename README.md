@@ -9,19 +9,18 @@ Some example project ideas from previous classes:
 1. [Flatiron Postcard](http://flatironpostcard.herokuapp.com/) - An app that lets you create and send custom postcards to friends and family
 1. Petster - A social media site for pets
 1. [ROBYStuff - Rent or Buy Your Stuff](https://stark-falls-90133.herokuapp.com/listings)
-1. [JOBuddy - Assistance with Job Applications](https://sheltered-woodland-79144.herokuapp.com/)
 1. [dérive - Your Travel Companion to Destinations Across the Globe](https://derive-fis.herokuapp.com/)
 
 
 ## Requirements:
 
-1. You should have at least five models. You do not have to have all of these built out on day one. But by the end of the week, you should have at least five models.
+1. You should have at least five models. You do not have to have all of these built out on day one, but by the end of the week, you should have at least five models (Join tables count!).
 
-2. Some methods in your models. There should be at least twenty methods total in your models. These are to be used to better extract data from your tables. Think Flatiron BnB Lab
+2. Some methods in your models. There should be at least twenty methods total in your models. These are to be used to better extract data from your tables. If all of your logic is in your controller, you're making a mistake.  Talk to instructor if you're confused about the type of methods that might go on your models.
 
-3. No APIs until you get approval from an instructor.  The reason is because API's oftentimes leads you to learning the specific API really well, but not learning Rails that well.  Rails is a more transferable skill.  So stick with that.
+3. No APIs until you get approval from an instructor.  If your app completely works with dummy data and you have time left over, you can ask an instructor if you can start working with an API.
 
-4. Specs - there should be at least 10 specs in your project (five per person). 
+4. Tests - there should be at least 10 specs in your project (five per person). 
 
 5. An analytics page - The main learning goal of this is to get you to write some interesting activerecord queries.
 
