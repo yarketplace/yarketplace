@@ -20,18 +20,15 @@ Some example project ideas from previous classes:
 
 3. No APIs until you get approval from an instructor.  If your app completely works with dummy data and you have time left over, you can ask an instructor if you can start working with an API.
 
-4. Tests - there should be at least 10 specs in your project (five per person). 
+4. An analytics page - The main learning goal of this is to get you to write some interesting activerecord queries.
 
-5. An analytics page - The main learning goal of this is to get you to write some interesting activerecord queries.
-
-6. No JavaScript. Stay focused on Rails for this project - we'll have plenty of time this semeseter to cover JS topics. 
+5. No JavaScript. Stay focused on Rails for this project - we'll have plenty of time this semeseter to cover JS topics. 
 
 ## Project Task Steps
-- Come up with an idea, model out your domain. Get your project pitch approved.
-- Build your skateboard, with tests.
-- Build out more features.  With tests.
+- Come up with an idea, model out your domain. Get your project pitch approved. [Here](https://docs.google.com/document/d/1GfTDCwFGCAnvEhxhzfwbd4OHJZCQgsii0PLX6x_QCMA/edit) is the template for the project pitch.
+- Daily project check-in [sheet](https://docs.google.com/spreadsheets/d/1vdkwgz4z06BYKYmr13eLKtWDAyzsPAPKquIE6dSOX50/edit#gid=422835216) 
+- Build out features. 
 - Start styling and cleaning up issues. 
 - Present to your cohort!
-- Profit.
-
+- Submit Github link and video [here](https://docs.google.com/spreadsheets/d/1vdkwgz4z06BYKYmr13eLKtWDAyzsPAPKquIE6dSOX50/edit#gid=422835216)
 
