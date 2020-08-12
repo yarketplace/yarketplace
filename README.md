@@ -25,7 +25,6 @@ Some example project ideas from previous classes:
 
 ## Project Task Steps
 - Come up with an idea, model out your domain. Get your project pitch approved. [Here](https://docs.google.com/document/d/1GfTDCwFGCAnvEhxhzfwbd4OHJZCQgsii0PLX6x_QCMA/edit) is the template for the project pitch.
-- Daily project check-in [sheet](https://docs.google.com/spreadsheets/d/1vdkwgz4z06BYKYmr13eLKtWDAyzsPAPKquIE6dSOX50/edit#gid=422835216) 
 - Build out features. 
 - Start styling and cleaning up issues. 
 - Present to your cohort!
