@@ -2,8 +2,10 @@
 
 <%= form_with scope: :user, url: signin_path do |f| %>
     <%= f.label :email %>
-    <%= t.text_field :email %>
+    <%= f.text_field :email %>
     <br><br>
     <%= f.label :password %>
-    <%= t.text_field :password %>
+    <%= f.password_field :password %>
+    <br><br>
+    <%= f.submit "Sign in" %>
 <% end %>
