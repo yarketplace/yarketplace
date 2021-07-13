@@ -1,5 +1,5 @@
 class User < ApplicationRecord
 
-
-    has_many :posts, :foriegn_key => :poster_id
+    has_many :posts
+    has_many :comments
 end
