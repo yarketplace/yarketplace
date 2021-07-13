@@ -8,4 +8,8 @@ class SessionsController < ApplicationController
         return head(:forbidden) unless @user.authenticate(params[:user][:password])
         session[:user_id] = @user.id
     end
+
+    def destroy
+        session[:user_id] = nil
+      end      
 end
