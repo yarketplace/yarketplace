@@ -18,7 +18,7 @@
         <%= f.telephone_field :phone_number, placeholder: "Phone Number" %> <!-- is value returned as integer? -->
         <br><br>
         <%= f.label :location, "Where are you located?" %>
-        <%= f.select :city_id, options_for_select(@user.location_options), { include_blank: "Select your location" } %>
+        <%= f.select :location, options_for_select(@user_class.location_options), { include_blank: "Select your location" } %>
         <!--<br><small>If living in a college dormitory, please specify.</small> -->
         <br><br>
         <%= f.text_field :address, placeholder: "Address" %>

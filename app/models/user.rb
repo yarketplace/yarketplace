@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
     has_secure_password
 
-    def location_options
+    def self.location_options
         [
             ["East Rock"], # what other off-campus areas?
             ["Yale College: Old Campus", "Old Campus"],

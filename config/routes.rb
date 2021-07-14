@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :posts
 
   resources :users
+  get '/home', to: 'users#home', as: 'home'
+
   get '/signup', to: 'users#new'
   post '/signup-attempt', to: 'users#create'
 
