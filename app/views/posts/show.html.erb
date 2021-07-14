@@ -11,10 +11,14 @@
 
 
 <h3>Comments:</h3>
-<ul>
-    <% @post.comments.each do |comment|%>
-        <li><%= comment.content %> | <%= comment.user.name %></li>
-    <% end %>
-</ul>
-<br>
-<p><%= link_to "All Posts", posts_path %></p>
+<section class="section comments">
+	<div class="container">
+		<h2 class="subtitle is-5"><strong><%= @post.comments.count %></strong> Comments</h2>
+		<%= render @post.comments %>
+		<div class="comment-form">
+
+			
+	 		<%= render 'comments/form' %>
+		</div>
+	</div>
+</section>

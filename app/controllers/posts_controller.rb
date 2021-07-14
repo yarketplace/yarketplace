@@ -24,6 +24,18 @@ class PostsController < ApplicationController
         end
     end
 
+    def edit
+        @post = Post.find_by(id: params[:id])
+        @users = User.all
+    end
+
+    def update
+        @post = Post.find(params[:id])
+        @post.update(post_params)
+
+        redirect_to @post
+    end
+
     private
 
     def post_params
