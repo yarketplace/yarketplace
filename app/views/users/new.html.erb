@@ -1,28 +1,44 @@
-<h1>Create an account</h1>
+<%= stylesheet_link_tag "/stylesheets/user-form" %>
 
-<%= form_with model: @user do |f| %>
-    <%= f.label :name, "Full Name" %>
-    <%= f.text_field :name %>
-    <br><br>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-    <br><br>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    <%= f.label "Confirm password" %>
-    <%= f.password_field :password_confirmation %>
-    <br><br>
-    <%= f.label :phone_number %>
-    <%= f.telephone_field :phone_number %> <!-- is value returned as integer? -->
-    <br><br>
-    <%= f.label :location, "Where are you located?" %>
-    <%= f.text_field :location %>
-    <br><small>If living in a college dormitory, please specify.</small>
-    <br><br>
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-    <%= f.label :zip_code %>
-    <%= f.number_field :zip_code %> <!-- should this be a string? number field has those arrows -->
-    <br><br>
-    <%= f.submit "Sign up" %>
-<% end %>
+<% location_options = [
+    ["East Rock"], # what other off-campus areas?
+    ["Yale College: Old Campus", "Old Campus"],
+    ["Yale College: Benjamin Franklin", "Benjamin Franklin"],
+    ["Yale College: Berkeley", "Berkeley"],
+    ["Yale College: Branford", "Branford"],
+    ["Yale College: Davenport", "Davenport"],
+    ["Yale College: Ezra Stiles", "Ezra Stiles"],
+    ["Yale College: Grace Hopper", "Grace Hopper"],
+    ["Yale College: Jonathan Edwards", "Jonathan Edwards"],
+    ["Yale College: Morse", "Morse"],
+    ["Yale College: Pauli Murray", "Pauli Murray"],
+    ["Yale College: Pierson", "Pierson"],
+    ["Yale College: Saybrook", "Saybrook"],
+    ["Yale College: Silliman", "Silliman"],
+    ["Yale College: Timothy Dwight", "Timothy Dwight"],
+    ["Yale College: Trumball", "Trumball"]
+]%>
+
+<div class="form-container">
+    <h1>Create an account</h1>
+
+    <%= form_with model: @user do |f| %>
+        <%= f.text_field :name, placeholder: "Full Name" %>
+        <br>
+        <%= f.text_field :email, placeholder: "Email" %>
+        <br><br>
+        <%= f.password_field :password, placeholder: "Password" %>
+        <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+        <br><br>
+        <%= f.telephone_field :phone_number, placeholder: "Phone Number" %> <!-- is value returned as integer? -->
+        <br><br>
+        <%= f.label :location, "Where are you located?" %>
+        <%= f.select :city_id, options_for_select([["Lisbon"], ["Madrid"]]) %>
+        <br><small>If living in a college dormitory, please specify.</small>
+        <br><br>
+        <%= f.text_field :address, placeholder: "Address" %>
+        <%= f.number_field :zip_code, placeholder: "Zip Code" %> <!-- should this be a string? number field has those arrows -->
+        <br><br>
+        <%= f.submit "Sign up" %>
+    <% end %>
+</div>
