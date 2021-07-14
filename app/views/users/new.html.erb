@@ -33,8 +33,8 @@
         <%= f.telephone_field :phone_number, placeholder: "Phone Number" %> <!-- is value returned as integer? -->
         <br><br>
         <%= f.label :location, "Where are you located?" %>
-        <%= f.select :city_id, options_for_select([["Lisbon"], ["Madrid"]]) %>
-        <br><small>If living in a college dormitory, please specify.</small>
+        <%= f.select :city_id, options_for_select(location_options), { include_blank: "Select your location" } %>
+        <!--<br><small>If living in a college dormitory, please specify.</small> -->
         <br><br>
         <%= f.text_field :address, placeholder: "Address" %>
         <%= f.number_field :zip_code, placeholder: "Zip Code" %> <!-- should this be a string? number field has those arrows -->
