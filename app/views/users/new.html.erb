@@ -1,26 +1,11 @@
 <%= stylesheet_link_tag "/stylesheets/user-form" %>
 
-<% location_options = [
-    ["East Rock"], # what other off-campus areas?
-    ["Yale College: Old Campus", "Old Campus"],
-    ["Yale College: Benjamin Franklin", "Benjamin Franklin"],
-    ["Yale College: Berkeley", "Berkeley"],
-    ["Yale College: Branford", "Branford"],
-    ["Yale College: Davenport", "Davenport"],
-    ["Yale College: Ezra Stiles", "Ezra Stiles"],
-    ["Yale College: Grace Hopper", "Grace Hopper"],
-    ["Yale College: Jonathan Edwards", "Jonathan Edwards"],
-    ["Yale College: Morse", "Morse"],
-    ["Yale College: Pauli Murray", "Pauli Murray"],
-    ["Yale College: Pierson", "Pierson"],
-    ["Yale College: Saybrook", "Saybrook"],
-    ["Yale College: Silliman", "Silliman"],
-    ["Yale College: Timothy Dwight", "Timothy Dwight"],
-    ["Yale College: Trumball", "Trumball"]
-]%>
-
 <div class="form-container">
-    <h1>Create an account</h1>
+    <div class="welcome">
+        <h5><b>The Yarket Place</b></h5>
+    </div>
+
+    <p class="heading">Create an account</p>
 
     <%= form_with model: @user do |f| %>
         <%= f.text_field :name, placeholder: "Full Name" %>
@@ -33,12 +18,13 @@
         <%= f.telephone_field :phone_number, placeholder: "Phone Number" %> <!-- is value returned as integer? -->
         <br><br>
         <%= f.label :location, "Where are you located?" %>
-        <%= f.select :city_id, options_for_select(location_options), { include_blank: "Select your location" } %>
+        <%= f.select :city_id, options_for_select(@user.location_options), { include_blank: "Select your location" } %>
         <!--<br><small>If living in a college dormitory, please specify.</small> -->
         <br><br>
         <%= f.text_field :address, placeholder: "Address" %>
         <%= f.number_field :zip_code, placeholder: "Zip Code" %> <!-- should this be a string? number field has those arrows -->
         <br>
         <%= f.submit "Sign up" %>
+        <p>Returning user? <a href="/signin">Sign in</a></p>
     <% end %>
 </div>
