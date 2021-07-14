@@ -9,7 +9,7 @@
 
 
 <p><b>Upload a post below</b></p>
-<%= form_with(model: [@post, @post.images.build] ) do |f| %>
+<%= form_with(model: @post) do |f| %>
 
     <%= f.label :user_id %>
     <%= f.collection_select :user_id, @users, :id, :name %> <br>
@@ -22,6 +22,13 @@
     <%= f.label :category %>
     <%= f.select :category, Post.categories%> <br>
     <br><br>
+
+    <%= f.fields_for :photo do |t| %>
+    <div>
+      <%= t.label :image %>
+      <%= t.file_field :image, :multiple => true %>
+    </div>
+  <% end %>
 
     <%= f.label :price %>
     <%= f.number_field :price, value: number_to_currency(f.object.price.to_f, delimiter: '', unit: ''), :step => 0.01 %> <br>

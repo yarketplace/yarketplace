@@ -17,7 +17,11 @@ class PostsController < ApplicationController
         @post = Post.create(post_params)
         
         if @post.valid?
-            redirect_to post_path(@post)
+            # byebug
+            params[:post][:photo][:image].each do |img|
+                @image = @post.images.create!(uploaded_image: img)
+            end
+        redirect_to post_path(@post)
         else
             # add error display
             redirect_to new_post_path(@post)
@@ -39,6 +43,6 @@ class PostsController < ApplicationController
     private
 
     def post_params
-        params.require(:post).permit(:user_id, :title, :category, :price, :desc)
+        params.require(:post).permit(:user_id, :title, :category, :price, :desc, image_attributes: [:image])
     end
 end
