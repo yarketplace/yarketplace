@@ -2,8 +2,14 @@
 
 <!-- add error display -->
 
+
+
+
+
+
+
 <p><b>Upload a post below</b></p>
-<%= form_with model: @post do |f| %>
+<%= form_with(model: [@post, @post.images.build] ) do |f| %>
 
     <%= f.label :user_id %>
     <%= f.collection_select :user_id, @users, :id, :name %> <br>

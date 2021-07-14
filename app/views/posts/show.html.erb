@@ -2,23 +2,17 @@
 <br>
 
 
-<h2>Poster: <%= @post.user.name %></h2>
-<h2>Title: <%= @post.title %></h2>
-<h2>Cateory: <%= @post.category %></h2>
-<h2>Price: $<%= @post.price %></h2>
+<p>Poster: <%= @post.user.name %></p> 
+<p>Cateory: <%= @post.category %></p>
+<p>Price: $<%= @post.price %></p>
 <p>Description: <%= @post.desc %></p>
 
 <hr>
 
-<h3>Comments:</h3>
 <section class="section comments">
-	<div class="container">
-		<h2 class="subtitle is-5"><strong><%= @post.comments.count %></strong> Comments</h2>
+	<div>
+		<p class="subtitle is-5"><strong><%= @post.comments.count %></strong> Comments</p>
 		<%= render @post.comments %>
-		<div class="comment-form">
-
-			
-	 		<%= render 'comments/form' %>
-		</div>
+        <%= render 'comments/form' %>
 	</div>
 </section>
