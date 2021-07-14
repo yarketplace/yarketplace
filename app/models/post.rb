@@ -3,4 +3,9 @@ class Post < ApplicationRecord
     has_many :favs, dependent: :destroy
     belongs_to :user
     #has_one_attached :image
+
+    # creates a global array of acceptable categories
+    def self.categories
+        ["Furniture", "Books", "Other"]
+    end 
 end
