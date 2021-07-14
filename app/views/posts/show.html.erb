@@ -1,5 +1,15 @@
 <h1><%= @post.title %></h1>
 <br>
+
+
+<h2>Poster: <%= @post.user.name %></h2>
+<h2>Title: <%= @post.title %></h2>
+<h2>Cateory: <%= @post.category %></h2>
+<h2>Price: $<%= @post.price %></h2>
+<p>Description: <%= @post.desc %></p>
+
+
+
 <h3>Comments:</h3>
 <ul>
     <% @post.comments.each do |comment|%>
