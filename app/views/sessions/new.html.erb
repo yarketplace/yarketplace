@@ -1,0 +1,20 @@
+<%= stylesheet_link_tag "/stylesheets/user-form" %>
+
+<div class="form-container">
+    <div class="welcome">
+        <h5><b>The Yarket Place</b></h5>
+    </div>
+
+    <p class="heading">Sign in</p>
+
+    <%= form_with scope: :user, url: signin_path do |f| %>
+        <!-- <%= f.label :email %> -->
+        <%= f.text_field :email, placeholder: "Email" %>
+        <br>
+        <!-- <%= f.label :password %> -->
+        <%= f.password_field :password, placeholder: "Password" %>
+        <br>
+        <%= f.submit "Sign in" %>
+        <p>New user? <a href="/signup">Sign up</a></p>
+    <% end %>
+</div>
