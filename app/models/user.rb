@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
     has_secure_password
 
+    validates :email, uniqueness: true
+
     def self.location_options
         [
             ["East Rock"], # what other off-campus areas?
