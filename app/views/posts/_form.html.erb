@@ -1,29 +1,38 @@
-<h1>New Post</h1>
+<%= stylesheet_link_tag "/stylesheets/user-form" %>
+
+<!-- <h1>New Post</h1> -->
 
 <!-- add error display -->
 
-<p><b>Upload a post below</b></p>
-<%= form_with model: @post do |f| %>
+<!-- <p><b>Upload a post below</b></p> -->
+<div class="form-container">
+    <% if params[:action] == "new" %>
+        <p class="heading">New Post</p>
+    <% elsif params[:action] == "edit" %>
+        <p class="heading">Edit Post</p>
+    <% end %>
 
-    <%= f.label :user_id %>
-    <%= f.collection_select :user_id, @users, :id, :name %> <br>
-    <br><br>
+    <%= form_with model: @post do |f| %>
 
-    <%= f.label :title %>
-    <%= f.text_field :title %> <br>
-    <br><br>
+        <%= f.label :user_id %>
+        <%= f.collection_select :user_id, @users, :id, :name %> <br>
+        <br>
 
-    <%= f.label :category %>
-    <%= f.select :category, Post.categories%> <br>
-    <br><br>
+        <%= f.label :title %>
+        <%= f.text_field :title %> <br>
+        <br>
 
-    <%= f.label :price %>
-    <%= f.number_field :price, value: number_to_currency(f.object.price.to_f, delimiter: '', unit: ''), :step => 0.01 %> <br>
-    <br><br>
+        <%= f.label :category %>
+        <%= f.select :category, Post.categories%> <br>
+        <br>
 
-    <%= f.label :desc %>
-    <%= f.text_area :desc %> <br>
-    <br><br>
+        <%= f.label :price %>
+        <%= f.number_field :price, value: number_to_currency(f.object.price.to_f, delimiter: '', unit: ''), :step => 0.01 %> <br>
+        <br>
 
-    <%= f.submit "Create Post!" %>
-<% end %>
+        <%= f.label :desc %>
+        <%= f.text_area :desc %> <br>
+
+        <%= f.submit "Create Post!" %>
+    <% end %>
+</div>

@@ -4,6 +4,7 @@ body {background-color : #00356B;}
 
 .heading {
     margin-top: 1rem;
+    font-weight: bolder;
     /* margin-right: auto;
     margin-left: auto; */
 }
@@ -27,7 +28,7 @@ body {background-color : #00356B;}
 }
 
 /* input fields */
-input[type=text], input[type=password], input[type=tel], input[type=number], select {
+input[type=text], input[type=password], input[type=tel], input[type=number], select, textarea {
     width: 100%;
     padding: 12px;
     display: inline-block;
