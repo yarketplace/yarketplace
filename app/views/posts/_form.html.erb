@@ -40,7 +40,7 @@
         <br>
         <div class="input-group">
             <span class="input-group-text"><%= f.label :price %></span>
-            <%= f.number_field :price, value: number_to_currency(f.object.price.to_f, delimiter: '', unit: ''), :step => 0.01, class: "form-control" %>
+            <%= f.number_field :price, min: 0, value: number_to_currency(f.object.price.to_f, delimiter: '', unit: ''), :step => 0.01, class: "form-control" %>
         </div>
         <br>
         <div class="input-group">

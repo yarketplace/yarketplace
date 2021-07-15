@@ -19,6 +19,7 @@ class UsersController < ApplicationController
             redirect_to home_path
         else
             # --> error message handling
+            flash[:errors] = @user.errors.full_messages
             redirect_to new_user_path
         end
     end

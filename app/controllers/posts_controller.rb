@@ -28,6 +28,7 @@ class PostsController < ApplicationController
         redirect_to post_path(@post)
         else
             # add error display
+            flash[:errors] = @post.errors.full_messages
             redirect_to new_post_path(@post)
         end
     end
