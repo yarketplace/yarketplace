@@ -28,7 +28,8 @@
       <%= t.label :image %>
       <%= t.file_field :image, :multiple => true %>
     </div>
-  <% end %>
+    <% end %>
+    <br><br>
 
     <%= f.label :price %>
     <%= f.number_field :price, value: number_to_currency(f.object.price.to_f, delimiter: '', unit: ''), :step => 0.01 %> <br>

@@ -18,6 +18,7 @@ class ImagesController < ApplicationController
             redirect_to image_path(image)
         else
             # add error display
+            puts "error"
             render :new
         end
     end

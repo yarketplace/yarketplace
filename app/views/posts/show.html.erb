@@ -7,6 +7,10 @@
 <p>Price: $<%= @post.price %></p>
 <p>Description: <%= @post.desc %></p>
 
+
+<% @post.images.each do |img|%>
+    <%= image_tag img.uploaded_image.variant(resize_to_limit: [nil, 300]) %>
+<% end %>
 <hr>
 
 <section class="section comments">
