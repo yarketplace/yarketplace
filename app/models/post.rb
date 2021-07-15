@@ -17,16 +17,16 @@ class Post < ApplicationRecord
     def self.categories
         ["Furniture", "Books", "Other"]
     end 
-
+    # return true if post is faved by current user
     def is_fav?(user)
         user.favs.find_by(post_id: self.id)
     end
-
+    # return post create date
     def create_date
         date = self.created_at
         date.strftime("%B %d, %Y")
     end
-
+    # return number of comments on a post
     def num_comments
         self.comments.count
     end
@@ -34,8 +34,14 @@ class Post < ApplicationRecord
     def self.total_num_comments
         self.all.count
     end
-
+    # return array of all posts ordered by most recent
     def self.order_by_most_recent
         self.all.order(created_at: :desc)
+    end
+    # return when a post was faved
+    def faved_date(user)
+        if self.is_fav?(user)
+            Fav.find_by(post_id: self.id).create_date
+        end
     end
 end

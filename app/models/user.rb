@@ -13,7 +13,7 @@ class User < ApplicationRecord
     validates :zip_code, presence: true
     validates :phone_number, presence: true
     validates :name, presence: true
-
+    # location options for user create form
     def self.location_options
         [
             ["East Rock"], # what other off-campus areas?
@@ -35,22 +35,24 @@ class User < ApplicationRecord
             ["Other"]
         ]
     end
-
+    # return number of posts user has faved
     def num_faved_posts
         self.favs.count
     end
-
-    def faved_posts_names
-        self.posts.map { |post| post.is_fav?(self) }
+    # return array of all posts faved by user
+    def faved_posts
+        # self.posts.map { |post| post.is_fav?(self) }
+        self.favs.map {|fav| fav.post }
     end
-
+    # display total users signed up with Yarket
     def self.total_num_users
         self.all.count
     end
     # orders an array of user's posts by most recent
     def order_by_most_recent
         self.all.order(created_at: :desc)
-
+    end
+    # display when user was created
     def create_date
         date = self.created_at
         date.strftime("%B %d, %Y")

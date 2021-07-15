@@ -40,6 +40,7 @@
 				<div class="card p-3">
 					<% @post.images.each do |img|%>
 						<%= image_tag img.uploaded_image %>
+						<caption>Uploaded: <%= img.create_date %></caption>
 					<% end %>
 				</div>
 			</div>
@@ -60,7 +61,7 @@
 	<% end %>
 </section>
 
-	<section class="section comments mt-5">
+	<section class="section comments">
 		<div>
 			<p class="subtitle is-5"><strong><%= @post.num_comments %></strong> Comments</p>
 			<br>

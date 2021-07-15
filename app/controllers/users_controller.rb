@@ -2,6 +2,7 @@ class UsersController < ApplicationController
     before_action :redirect_if_not_signed_in, except: [:new, :create]
 
     def home
+        @users = User.all
         @user = User.find_by(id: session[:user_id])
     end
 

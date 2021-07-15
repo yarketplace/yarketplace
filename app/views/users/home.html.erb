@@ -13,6 +13,7 @@
         <div>
           <h4>View all Yarket Place posts</h4>
           <p>Looking for furniture, books, or other items? View all postings from other Yalies!</p>
+          <p>We currently have <%= @users.total_num_users %> Yalies signed up!</p>
           <a href="/posts" class="btn btn-primary">
             View the Yarket
           </a>
@@ -46,6 +47,7 @@
                     <li class="list-group-item"><b>Location: </b><%= @user.location %></li>
                     <li class="list-group-item"><b>Street: </b><%= @user.address %></li>
                     <li class="list-group-item"><b>Zip Code: </b><%= @user.zip_code %></li>
+                    <li class="list-group-item"><b>Created account: </b><%= @user.create_date %></li>
                     <li class="list-group-item">
                         <div class="d-flex justify-content-end">
                             <%= button_to "Edit Profile", edit_user_path(@user), method: 'get', class: "btn btn-primary me-2 mt-1" %>
@@ -57,10 +59,13 @@
         </div>
         <div class="col">
             <div class="card p-3 h-100">
-                <p class="text-center">Your Favorite Posts</p>
+                <p class="text-center">Your Favorite Posts (<%= @user.num_faved_posts %>)</p>
                 <ul class="list-group list-group-flush">
-                    <% @user.favs.each do |fav| %>
-                    <li class="list-group-item"><%= link_to fav.post.title, post_path(fav.post) %></li>
+                    <% @user.faved_posts.each do |post| %>
+                      <li class="list-group-item">
+                        <%= link_to post.title, post_path(post) %><br>
+                        <small>Faved on <%= post.faved_date(@user) %></small>
+                      </li>
                     <% end %>
                 </ul>
             </div>
