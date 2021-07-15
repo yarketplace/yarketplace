@@ -12,4 +12,8 @@ class Post < ApplicationRecord
     def self.categories
         ["Furniture", "Books", "Other"]
     end 
+
+    def is_fav?(user)
+        user.favs.find_by(post_id: self.id)
+    end
 end

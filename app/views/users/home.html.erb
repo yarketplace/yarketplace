@@ -16,6 +16,11 @@
 
         <div class="card text-center">
             <p>Your Favorite Posts</p>
+            <ul class="list-group list-group-flush">
+                <% @user.favs.each do |fav| %>
+                <li class="list-group-item"><%= link_to fav.post.title, post_path(fav.post) %></li>
+                <% end %>
+            </ul>
         </div>
     </div>
 <div>
