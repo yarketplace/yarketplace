@@ -9,12 +9,18 @@
 
     <%= form_with scope: :user, url: signin_path do |f| %>
         <!-- <%= f.label :email %> -->
-        <%= f.text_field :email, placeholder: "Email" %>
+        <div class="input-group">
+            <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
+        </div>
         <br>
         <!-- <%= f.label :password %> -->
-        <%= f.password_field :password, placeholder: "Password" %>
+        <div class="input-group">
+            <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
+        </div>
         <br>
-        <%= f.submit "Sign in" %>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <%= f.submit "Sign in", class: "btn btn-primary" %>
+        </div>
         <p>New user? <a href="/signup">Sign up</a></p>
     <% end %>
 </div>
