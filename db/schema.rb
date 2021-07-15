@@ -48,6 +48,16 @@ ActiveRecord::Schema.define(version: 2021_07_13_215141) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "favs", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "post_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_favs_on_post_id"
+    t.index ["user_id", "post_id"], name: "index_favs_on_user_id_and_post_id", unique: true
+    t.index ["user_id"], name: "index_favs_on_user_id"
+  end
+
   create_table "images", force: :cascade do |t|
     t.integer "post_id"
     t.datetime "created_at", precision: 6, null: false
@@ -78,4 +88,6 @@ ActiveRecord::Schema.define(version: 2021_07_13_215141) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "favs", "posts"
+  add_foreign_key "favs", "users"
 end
