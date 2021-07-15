@@ -1,7 +1,41 @@
-<h1 class="display-6 m-5">Hello, <%= @user.name %>.</h1>
+<div class="container px-4 py-5">
+    <h2 class="pb-2 border-bottom">Hello there!</h2>
+    <div class="row g-4 py-5 row-cols-lg-3">
+      <div class="col d-flex align-items-start">
+        <div>
+          <h4>View your info</h4>
+          <p>Below you will can view your profile information, your favorite posts, and your written posts. 
+          There you can also find the options to edit your posts and your profile information.</p>
+          <p>Take a look!</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div>
+          <h4>View all Yarket Place posts</h4>
+          <p>Looking for furniture, books, or other items? View all postings from other Yalies!</p>
+          <a href="#" class="btn btn-primary">
+            View the Yarket
+          </a>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div>
+          <h4>View your posts</h4>
+          <p>Got something you want to get rid of? Create a post on the Yarket!</p>
+          <p>Or, you can visit all your posts to view, edit, or delete.</p>
+          <a href="#" class="btn btn-primary">
+            Create New Post
+          </a>
+          <a href="#" class="btn btn-primary">
+            View My Posts
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <div class="container">
-    <div class="row">
+    <div class="row row-cols-lg-2">
         <div class="card">
             <p class="text-center">Your Profile</p>
             <ul class="list-group list-group-flush">
@@ -14,8 +48,8 @@
             </ul>
         </div>
 
-        <div class="card text-center">
-            <p>Your Favorite Posts</p>
+        <div class="card">
+            <p class="text-center">Your Favorite Posts</p>
             <ul class="list-group list-group-flush">
                 <% @user.favs.each do |fav| %>
                 <li class="list-group-item"><%= link_to fav.post.title, post_path(fav.post) %></li>
