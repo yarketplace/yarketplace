@@ -33,8 +33,7 @@
 	</div>
 </section>
 
-<%= link_to "Delete", post, :method => :delete, :confirm => "Are you sure?", 
-                            :title => "Delete #{post.title}" %>
+<%= button_to 'Delete', post_path(@post), method: 'delete', data: { confirm: 'Are you sure?' } %>
 
 	<section class="section comments">
 		<div>
