@@ -8,8 +8,14 @@ class User < ApplicationRecord
     has_secure_password
 
     validates :email, uniqueness: true, presence: true
+    validates :location, presence: true
+    validates :address, presence: true
+    validates :zip_code, presence: true
+    validates :phone_number, presence: true
+    validates :name, presence: true
 
-    validates :password_digest, presence: true
+
+
 
 
     def self.location_options
