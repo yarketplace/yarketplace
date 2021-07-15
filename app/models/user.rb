@@ -1,9 +1,13 @@
-class User < ApplicationRecord
+# User -< Favs >- Post / #through fav?  
 
-    has_many :posts, dependent: :destroy
+class User < ApplicationRecord
+    has_many :posts, dependent: :destroy  
     has_many :comments
+    has_many :favs
 
     has_secure_password
+
+    validates :email, uniqueness: true
 
     def self.location_options
         [

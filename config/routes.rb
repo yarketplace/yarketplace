@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
 
   resources :users
+  resources :favs
   get '/home', to: 'users#home', as: 'home'
 
   get '/signup', to: 'users#new'

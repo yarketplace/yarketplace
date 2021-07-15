@@ -4,6 +4,7 @@ body {background-color : #00356B;}
 
 .heading {
     margin-top: 1rem;
+    font-weight: bolder;
     /* margin-right: auto;
     margin-left: auto; */
 }
@@ -18,7 +19,7 @@ body {background-color : #00356B;}
 .form-container {
     background-color: white;
     box-sizing: border-box;
-    width: 30rem;
+    width: 40rem;
     margin: 32px auto;
     padding: 32px;
     border-radius: 10px;
@@ -27,7 +28,7 @@ body {background-color : #00356B;}
 }
 
 /* input fields */
-input[type=text], input[type=password], input[type=tel], input[type=number], select {
+/* input[type=tel], input[type=number], textarea {
     width: 100%;
     padding: 12px;
     display: inline-block;
@@ -37,15 +38,15 @@ input[type=text], input[type=password], input[type=tel], input[type=number], sel
     box-sizing: border-box;
     margin-top: 4px;
     margin-bottom: 4px;
-}
+} */
 
 /* place labels on top of input fields */
-input, label {
+/* input, label {
     display:block;
-}
+} */
 
 /* submit button */
-input[type=submit] {
+/* input[type=submit] {
     background-color: #00356B;
     border: none;
     border-radius: 10px;
@@ -56,11 +57,24 @@ input[type=submit] {
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 8px;
-}
+} */
 
+/* 
 input[type=submit]:hover {
     opacity: 0.6;
     cursor:pointer;
+} */
+
+.btn-primary {
+    background-color: #00356B;
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 8px;
+}
+
+.btn-primary:hover {
+    background-color: #00478f;
 }
 
 p {
