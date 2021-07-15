@@ -7,6 +7,8 @@
 	<% else %>
 		<%= button_to "Remove from Favorites", delete_fav_path, method: 'delete', params: { post_id: @post.id } %>
 	<% end %>
+<% else %>
+	<%= button_to "Edit Post", edit_post_path, method: 'get' %>
 <% end %>
 <br>
 <p>Poster: <%= @post.user.name %></p> 

@@ -45,6 +45,9 @@
                 <li class="list-group-item"><b>Location: </b><%= @user.location %></li>
                 <li class="list-group-item"><b>Street: </b><%= @user.address %></li>
                 <li class="list-group-item"><b>Zip Code: </b><%= @user.zip_code %></li>
+                <li class="list-group-item">
+                    <%= button_to "Edit Profile", edit_user_path(@user), method: 'get', class: "btn btn-primary" %>
+                </li>
             </ul>
         </div>
 

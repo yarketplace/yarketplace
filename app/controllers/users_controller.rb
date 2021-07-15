@@ -21,6 +21,26 @@ class UsersController < ApplicationController
         end
     end
 
+    def edit
+        @user = User.find_by(id: params[:id])
+        @user_class = User.all
+    end
+
+    def update
+        @user = User.find_by(id: params[:id])
+        @user.update(user_params)
+
+        if @user.valid?
+            @user.save
+            redirect_to home_path
+        else
+            # error messages
+
+            redirect_to edit_user_path
+        end
+
+    end
+
     def my_posts
         @user = User.find_by(id: session[:user_id])
         @my_posts = @user.posts
