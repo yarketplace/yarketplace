@@ -21,6 +21,11 @@ class UsersController < ApplicationController
         end
     end
 
+    def my_posts
+        @user = User.find_by(id: session[:user_id])
+        @my_posts = @user.posts
+    end
+
     private
 
     def user_params

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users
   resources :favs
   get '/home', to: 'users#home', as: 'home'
+  get '/my_posts', to: 'users#my_posts'
 
   post '/add_fav', to: 'favs#create'
   delete '/delete_fav', to: 'favs#destroy'
