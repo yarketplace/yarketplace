@@ -1,1 +1,4 @@
+<% if flash[:errors] %>
+    <%= render "concerns/errors" %>
+<% end %>
 <%= render "form" %>

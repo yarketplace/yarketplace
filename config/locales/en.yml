@@ -30,4 +30,13 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      post:
+        desc: "Description"
+    errors:
+      models:
+        posts:
+          attributes:
+            desc:
+              blank: "can't be blank"

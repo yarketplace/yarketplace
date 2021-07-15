@@ -1,0 +1,8 @@
+<div class="alert alert-light" role="alert">
+    <% if flash[:errors].count > 1 %>
+        <h6 class="text-center mb-0"><%= flash[:errors].join(" | ") %></h6>
+    <% else %>
+        <h6 class="text-center mb-0"><%= flash[:errors][0].to_s %></h6>
+    <% end %>
+</div>
+
