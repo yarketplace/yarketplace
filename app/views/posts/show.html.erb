@@ -20,3 +20,6 @@
         <%= render 'comments/form' %>
 	</div>
 </section>
+
+<%= link_to "Delete", post, :method => :delete, :confirm => "Are you sure?", 
+                            :title => "Delete #{post.title}" %>
