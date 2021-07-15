@@ -28,7 +28,7 @@ class Post < ApplicationRecord
     end
 
     def num_comments
-        self.comment.count
+        self.comments.count
     end
 
     def self.total_num_comments
