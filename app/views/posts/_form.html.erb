@@ -12,7 +12,8 @@
         <p class="heading">Edit Post</p>
     <% end %>
 
-    <%= form_with model: @post do |f| %>
+<!-- <p><b>Upload a post below</b></p> -->
+<%= form_with(model: @post) do |f| %>
 
         <%= f.label :user_id %>
         <%= f.collection_select :user_id, @users, :id, :name %> <br>
@@ -26,9 +27,16 @@
         <%= f.select :category, Post.categories%> <br>
         <br>
 
-        <%= f.label :price %>
-        <%= f.number_field :price, value: number_to_currency(f.object.price.to_f, delimiter: '', unit: ''), :step => 0.01 %> <br>
-        <br>
+    <%= f.fields_for :photo do |t| %>
+    <div>
+      <%= t.label :image %>
+      <%= t.file_field :image, :multiple => true %>
+    </div>
+  <% end %>
+
+    <%= f.label :price %>
+    <%= f.number_field :price, value: number_to_currency(f.object.price.to_f, delimiter: '', unit: ''), :step => 0.01 %> <br>
+    <br><br>
 
         <%= f.label :desc %>
         <%= f.text_area :desc %> <br>

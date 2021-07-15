@@ -1,11 +1,1 @@
-<h1>Upload an Image</h1>
-
-<!-- add error display -->
-
-<p><b>Upload an image below</b></p>
-<%= form_with model: @image do |f| %>
-    <%= f.label :uploaded_image, "Your Image: " %>
-    <%= f.file_field :uploaded_image %>
-    <br><br>
-    <%= f.submit "Upload image" %>
-<% end %>
+<%= render "form" %>
