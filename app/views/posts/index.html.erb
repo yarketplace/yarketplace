@@ -1,4 +1,4 @@
-<div class="m-3">
+<div class="m-5">
     <h1>Posts</h1>
     <!--
     <br>
@@ -12,7 +12,7 @@
     <%= button_to "Create New Post", new_post_path, method: 'get', class: "btn btn-primary" %>
 </div>
 
-<table class="table w-auto m-3">
+<table class="table w-auto m-5">
   <thead>
     <tr>
         <th scope="col">Fav</th>
@@ -25,7 +25,7 @@
     <% @posts.each do |post| %>
         <tr>
             <td><%= "★" if post.is_fav?(current_user) %></td>
-            <th scope="row"><%= post.title %></th>
+            <td><%= post.title %></td>
             <td><%= post.create_date %></td>
             <td>
                 <div class="d-flex">

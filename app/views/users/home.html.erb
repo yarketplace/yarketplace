@@ -26,7 +26,7 @@
           <a href="/posts/new" class="btn btn-primary">
             Create New Post
           </a>
-          <a href="/my_posts" class="btn btn-primary">
+          <a href="/my_posts" class="btn btn-secondary">
             View My Posts
           </a>
         </div>
@@ -48,7 +48,7 @@
                 <li class="list-group-item">
                     <div class="d-flex justify-content-end">
                         <%= button_to "Edit Profile", edit_user_path(@user), method: 'get', class: "btn btn-primary me-2" %>
-                        <%= button_to "Delete Account", user_path(@user), method: 'delete', class: "btn btn-primary", data: { confirm: "Are you sure?" } %>
+                        <%= button_to "Delete Account", user_path(@user), method: 'delete', class: "btn btn-secondary", data: { confirm: "Are you sure?" } %>
                     </div>
                 </li>
             </ul>

@@ -65,7 +65,7 @@ input[type=submit]:hover {
     cursor:pointer;
 } */
 
-.btn-primary {
+/* .btn-primary {
     background-color: #00356B;
     border: none;
     padding-top: 10px;
@@ -75,7 +75,7 @@ input[type=submit]:hover {
 
 .btn-primary:hover {
     background-color: #00478f;
-}
+} */
 
 p {
     text-align: center;

@@ -1,8 +1,8 @@
-<div class="m-3">
+<div class="m-5">
   <h1>My Posts</h1>
   <%= button_to "Create New Post", new_post_path, method: 'get', class: "btn btn-primary" %>
 </div>
-<table class="table w-auto m-3">
+<table class="table w-auto m-5">
   <thead>
     <tr>
       <th class="w-50" scope="col">Title</th>
@@ -13,12 +13,12 @@
   <tbody>
     <% @my_posts.each do |post| %>
         <tr>
-            <th scope="row"><%= post.title %></th>
+            <td scope="row"><%= post.title %></td>
             <td><%= post.create_date %></td>
             <td>
                 <div class="d-flex">
                     <%= button_to "View", post_path(post), method: 'get', class: "btn btn-primary me-2" %>
-                    <%= button_to "Edit", edit_post_path(post), method: 'get', class: "btn btn-primary" %>
+                    <%= button_to "Edit", edit_post_path(post), method: 'get', class: "btn btn-secondary" %>
                 </div>
             </td>
         </tr>

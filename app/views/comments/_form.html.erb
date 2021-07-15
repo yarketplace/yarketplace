@@ -1,9 +1,10 @@
-<%= form_with(model: [@post, @post.comments.build]) do |f| %>
-
-    <%= f.label :content  %>
-    <%= f.text_area :content %> <br>
-    <br><br>
-
-    <%= f.submit %>
-
-<% end %>
+<div class="mb-5">
+    <%= form_with(model: [@post, @post.comments.build]) do |f| %>
+        <div class="input-group">
+            <span class="input-group-text"><%= f.label :content, "Write a comment"  %></span>
+            <%= f.text_area :content, class: "form-control" %>
+        </div>
+        <br>
+        <%= f.submit "Post Comment", class: "btn btn-primary" %>
+    <% end %>
+</div>
