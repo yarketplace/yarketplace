@@ -1,38 +1,37 @@
-<div class="m-5">
-    <h1>Posts</h1>
-    <!--
-    <br>
+<div class="container m-5 pe-4 ps-4">
+    <div class="col">
+        <div class="row">
+            <div class="d-flex justify-content-between">
+                <h1>Posts</h1>
+                <%= button_to "Create New Post", new_post_path, method: 'get', class: "btn btn-primary ms-5" %>
+            </div>
+        </div>
 
-        <% @posts.each do |post|%>
-        <hr>
-            <tr>> <%= link_to post.title, post_path(post) %></tr>
-        <% end %>
-    <hr>
-    -->
-    <%= button_to "Create New Post", new_post_path, method: 'get', class: "btn btn-primary" %>
+        <div class="row mt-2">
+            <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Fav</th>
+                    <th class="w-75" scope="col">Title</th>
+                    <th class="w-25" scope="col">Created</th>
+                    <th class="w-auto" scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @posts.each do |post| %>
+                    <tr>
+                        <td><%= "★" if post.is_fav?(current_user) %></td>
+                        <td><%= post.title %></td>
+                        <td><%= post.create_date %></td>
+                        <td>
+                            <div class="d-flex">
+                                <%= button_to "View", post_path(post), method: 'get', class: "btn btn-primary me-2" %>
+                            </div>
+                        </td>
+                    </tr>
+                <% end %>
+            </tbody>
+            </table>
+        </div>
+    </div>
 </div>
-
-<table class="table w-auto m-5">
-  <thead>
-    <tr>
-        <th scope="col">Fav</th>
-        <th class="w-50" scope="col">Title</th>
-        <th scope="col">Created</th>
-        <th class="w-25" scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @posts.each do |post| %>
-        <tr>
-            <td><%= "★" if post.is_fav?(current_user) %></td>
-            <td><%= post.title %></td>
-            <td><%= post.create_date %></td>
-            <td>
-                <div class="d-flex">
-                    <%= button_to "View", post_path(post), method: 'get', class: "btn btn-primary me-2" %>
-                </div>
-            </td>
-        </tr>
-    <% end %>
-  </tbody>
-</table>

@@ -5,7 +5,7 @@
 <!-- add error display -->
 
 <!-- <p><b>Upload a post below</b></p> -->
-<div class="card">
+<div class="card w-50 mt-5 m-auto p-3">
     <% if params[:action] == "new" %>
         <p class="heading">New Post</p>
     <% elsif params[:action] == "edit" %>
@@ -59,4 +59,3 @@
     <% end %>
 </div>
 
-<%= button_to 'Delete', post_path(@post), method: 'delete', data: { confirm: 'Are you sure?' } %>

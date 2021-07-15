@@ -1,4 +1,4 @@
-<div class="container px-4 py-5">
+<div class="container mt-4">
     <h2 class="pb-2 border-bottom">Hello there!</h2>
     <div class="row g-4 py-5 row-cols-lg-3">
       <div class="col d-flex align-items-start">
@@ -34,33 +34,36 @@
     </div>
   </div>
 
-<div class="container">
-    <div class="row row-cols-lg-2">
-        <div class="card">
-            <p class="text-center">Your Profile</p>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item"><b>Name: </b><%= @user.name %></li>
-                <li class="list-group-item"><b>Email: </b><%= @user.email %></li>
-                <li class="list-group-item"><b>Phone Number: </b><%= @user.phone_number %></li>
-                <li class="list-group-item"><b>Location: </b><%= @user.location %></li>
-                <li class="list-group-item"><b>Street: </b><%= @user.address %></li>
-                <li class="list-group-item"><b>Zip Code: </b><%= @user.zip_code %></li>
-                <li class="list-group-item">
-                    <div class="d-flex justify-content-end">
-                        <%= button_to "Edit Profile", edit_user_path(@user), method: 'get', class: "btn btn-primary me-2" %>
-                        <%= button_to "Delete Account", user_path(@user), method: 'delete', class: "btn btn-secondary", data: { confirm: "Are you sure?" } %>
-                    </div>
-                </li>
-            </ul>
+<div class="container mb-4 mt-4">
+    <div class="row row-cols-1 row-cols-md-2 d-flex">
+        <div class="col">
+            <div class="card p-3">
+                <p class="text-center">Your Profile</p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b>Name: </b><%= @user.name %></li>
+                    <li class="list-group-item"><b>Email: </b><%= @user.email %></li>
+                    <li class="list-group-item"><b>Phone Number: </b><%= @user.phone_number %></li>
+                    <li class="list-group-item"><b>Location: </b><%= @user.location %></li>
+                    <li class="list-group-item"><b>Street: </b><%= @user.address %></li>
+                    <li class="list-group-item"><b>Zip Code: </b><%= @user.zip_code %></li>
+                    <li class="list-group-item">
+                        <div class="d-flex justify-content-end">
+                            <%= button_to "Edit Profile", edit_user_path(@user), method: 'get', class: "btn btn-primary me-2 mt-1" %>
+                            <%= button_to "Delete Account", user_path(@user), method: 'delete', class: "btn btn-secondary mt-1", data: { confirm: "Are you sure?" } %>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
-
-        <div class="card">
-            <p class="text-center">Your Favorite Posts</p>
-            <ul class="list-group list-group-flush">
-                <% @user.favs.each do |fav| %>
-                <li class="list-group-item"><%= link_to fav.post.title, post_path(fav.post) %></li>
-                <% end %>
-            </ul>
+        <div class="col">
+            <div class="card p-3 h-100">
+                <p class="text-center">Your Favorite Posts</p>
+                <ul class="list-group list-group-flush">
+                    <% @user.favs.each do |fav| %>
+                    <li class="list-group-item"><%= link_to fav.post.title, post_path(fav.post) %></li>
+                    <% end %>
+                </ul>
+            </div>
         </div>
     </div>
 <div>
