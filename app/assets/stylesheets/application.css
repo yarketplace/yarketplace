@@ -24,10 +24,11 @@
 }
 
 .card {
-    width: 40rem;
-    margin: 32px auto;
-    padding: 32px;
     border-radius: 10px;
+}
+
+.home-card {
+    width: 40rem;
 }
 
 .btn {

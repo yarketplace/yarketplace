@@ -18,8 +18,8 @@
 
 
 <div class="container">
-	<div class="row row-cols-lg-2">
-		<div class="card">
+	<div class="row d-flex">
+		<div class="card p-3">
 			<ul class="list-group list-group-flush">
 				<li class="list-group-item">Poster: <%= @post.user.name %></li> 
 				<li class="list-group-item">Cateory: <%= @post.category %></li>
@@ -43,7 +43,7 @@
 
 
 
-	<section class="section comments">
+	<section class="section comments mt-5">
 		<div>
 			<p class="subtitle is-5"><strong><%= @post.comments.count %></strong> Comments</p>
 			<br>
