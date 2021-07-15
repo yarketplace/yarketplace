@@ -1,12 +1,38 @@
-<h1>Posts</h1>
-<br>
+<div class="m-3">
+    <h1>Posts</h1>
+    <!--
+    <br>
 
-    <% @posts.each do |post|%>
+        <% @posts.each do |post|%>
+        <hr>
+            <tr>> <%= link_to post.title, post_path(post) %></tr>
+        <% end %>
     <hr>
-        <tr>> <%= link_to post.title, post_path(post) %></tr>
+    -->
+    <%= button_to "Create New Post", new_post_path, method: 'get', class: "btn btn-primary" %>
+</div>
+
+<table class="table w-auto m-3">
+  <thead>
+    <tr>
+        <th scope="col">Fav</th>
+        <th class="w-50" scope="col">Title</th>
+        <th scope="col">Created</th>
+        <th class="w-25" scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+        <tr>
+            <td><%= "★" if post.is_fav?(@current_user) %></td>
+            <th scope="row"><%= post.title %></th>
+            <td><%= post.create_date %></td>
+            <td>
+                <div class="d-flex">
+                    <%= button_to "View", post_path(post), method: 'get', class: "btn btn-primary me-2" %>
+                </div>
+            </td>
+        </tr>
     <% end %>
-<hr>
-
-<br>
-
-<p><%= link_to "Create a new Post", new_post_path%></p>
+  </tbody>
+</table>
