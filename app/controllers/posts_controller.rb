@@ -53,6 +53,7 @@ class PostsController < ApplicationController
         #format.html { redirect_to posts_url }
         #format.json { head :no_content }
         #end
+        redirect_to posts_path
     end
 
     private
