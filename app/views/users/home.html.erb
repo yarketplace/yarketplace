@@ -46,7 +46,10 @@
                 <li class="list-group-item"><b>Street: </b><%= @user.address %></li>
                 <li class="list-group-item"><b>Zip Code: </b><%= @user.zip_code %></li>
                 <li class="list-group-item">
-                    <%= button_to "Edit Profile", edit_user_path(@user), method: 'get', class: "btn btn-primary" %>
+                    <div class="d-flex justify-content-end">
+                        <%= button_to "Edit Profile", edit_user_path(@user), method: 'get', class: "btn btn-primary me-2" %>
+                        <%= button_to "Delete Account", user_path(@user), method: 'delete', class: "btn btn-primary", data: { confirm: "Are you sure?" } %>
+                    </div>
                 </li>
             </ul>
         </div>

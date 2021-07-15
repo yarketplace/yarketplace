@@ -40,6 +40,13 @@ class UsersController < ApplicationController
         end
 
     end
+    
+    def destroy
+        @user = User.find_by(id: params[:id])
+        @user.destroy
+        session[:user_id] = nil
+        redirect_to signin_path
+    end
 
     def my_posts
         @user = User.find_by(id: session[:user_id])
