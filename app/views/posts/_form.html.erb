@@ -58,3 +58,5 @@
         <p><%= link_to "Cancel", home_path %></p>
     <% end %>
 </div>
+
+<%= button_to 'Delete', post_path(@post), method: 'delete', data: { confirm: 'Are you sure?' } %>
