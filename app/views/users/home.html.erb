@@ -1,1 +1,66 @@
-<h1>Hello, <%= @user.name %>.</h1>
+<div class="container px-4 py-5">
+    <h2 class="pb-2 border-bottom">Hello there!</h2>
+    <div class="row g-4 py-5 row-cols-lg-3">
+      <div class="col d-flex align-items-start">
+        <div>
+          <h4>View your info</h4>
+          <p>Below you will can view your profile information, your favorite posts, and your written posts. 
+          There you can also find the options to edit your posts and your profile information.</p>
+          <p>Take a look!</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div>
+          <h4>View all Yarket Place posts</h4>
+          <p>Looking for furniture, books, or other items? View all postings from other Yalies!</p>
+          <a href="/posts" class="btn btn-primary">
+            View the Yarket
+          </a>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div>
+          <h4>View your posts</h4>
+          <p>Got something you want to get rid of? Create a post on the Yarket!</p>
+          <p>Or, you can visit all your posts to view, edit, or delete.</p>
+          <a href="/posts/new" class="btn btn-primary">
+            Create New Post
+          </a>
+          <a href="/my_posts" class="btn btn-secondary">
+            View My Posts
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+    <div class="row row-cols-lg-2">
+        <div class="card">
+            <p class="text-center">Your Profile</p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>Name: </b><%= @user.name %></li>
+                <li class="list-group-item"><b>Email: </b><%= @user.email %></li>
+                <li class="list-group-item"><b>Phone Number: </b><%= @user.phone_number %></li>
+                <li class="list-group-item"><b>Location: </b><%= @user.location %></li>
+                <li class="list-group-item"><b>Street: </b><%= @user.address %></li>
+                <li class="list-group-item"><b>Zip Code: </b><%= @user.zip_code %></li>
+                <li class="list-group-item">
+                    <div class="d-flex justify-content-end">
+                        <%= button_to "Edit Profile", edit_user_path(@user), method: 'get', class: "btn btn-primary me-2" %>
+                        <%= button_to "Delete Account", user_path(@user), method: 'delete', class: "btn btn-secondary", data: { confirm: "Are you sure?" } %>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <p class="text-center">Your Favorite Posts</p>
+            <ul class="list-group list-group-flush">
+                <% @user.favs.each do |fav| %>
+                <li class="list-group-item"><%= link_to fav.post.title, post_path(fav.post) %></li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+<div>

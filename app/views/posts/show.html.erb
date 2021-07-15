@@ -1,22 +1,42 @@
-<h1><%= @post.title %></h1>
-<br>
+<div class="m-5">
+	<h1><%= @post.title %></h1>
+	<br>
 
+	<!-- Add/Remove Fav button || Edit button-->
+	<% if @post.user.id != current_user.id %>
+		<% if !@post.is_fav?(current_user) %>
+			<%= button_to "Add to Favorites", add_fav_path, params: { post_id: @post.id }, class: "btn btn-primary" %>
+		<% else %>
+			<%= button_to "Remove from Favorites", delete_fav_path, method: 'delete', params: { post_id: @post.id }, class: "btn btn-primary" %>
+		<% end %>
+	<% else %>
+		<%= button_to "Edit Post", edit_post_path, method: 'get', class: "btn btn-primary" %>
+	<% end %>
+</div>
 
-<p>Poster: <%= @post.user.name %></p> 
-<p>Cateory: <%= @post.category %></p>
-<p>Price: $<%= @post.price %></p>
-<p>Description: <%= @post.desc %></p>
+<div class="container">
+	<div class="row row-cols-lg-2">
+		<div class="card">
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item">Poster: <%= @post.user.name %></li> 
+				<li class="list-group-item">Cateory: <%= @post.category %></li>
+				<li class="list-group-item">Price: $<%= @post.price %></li>
+				<li class="list-group-item">Description: <%= @post.desc %></li>
+			</ul>
+		</div>
 
-
-<% @post.images.each do |img|%>
-    <%= image_tag img.uploaded_image.variant(resize_to_limit: [nil, 300]) %>
-<% end %>
-<hr>
-
-<section class="section comments">
-	<div>
-		<p class="subtitle is-5"><strong><%= @post.comments.count %></strong> Comments</p>
-		<%= render @post.comments %>
-        <%= render 'comments/form' %>
+		<div class="card">
+			<% @post.images.each do |img|%>
+				<%= image_tag img.uploaded_image.variant(resize_to_limit: [nil, 300]) %>
+			<% end %>
+		</div>
 	</div>
-</section>
+
+	<section class="section comments">
+		<div>
+			<p class="subtitle is-5"><strong><%= @post.comments.count %></strong> Comments</p>
+			<%= render @post.comments %>
+			<%= render 'comments/form' %>
+		</div>
+	</section>
+</div>

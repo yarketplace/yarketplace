@@ -1,26 +1,61 @@
 <%= stylesheet_link_tag "/stylesheets/user-form" %>
 
-<div class="form-container">
-    <div class="welcome">
-        <h5><b>The Yarket Place</b></h5>
-    </div>
-    <hr>
-    <p class="heading">Sign in</p>
+<div class="card" id="signin">
+            <div class="welcome">
+                <h5><b>The Yarket Place</b></h5>
+            </div>
+            <hr>
+            <p class="heading">Sign in</p>
 
-    <%= form_with scope: :user, url: signin_path do |f| %>
-        <!-- <%= f.label :email %> -->
-        <div class="input-group">
-            <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
+            <%= form_with scope: :user, url: signin_path do |f| %>
+                <div class="input-group">
+                    <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
+                </div>
+                <br>
+                <div class="input-group">
+                    <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
+                </div>
+                <br>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <%= f.submit "Sign in", class: "btn btn-primary" %>
+                </div>
+                <p>New user? <a href="/signup">Sign up</a></p>
+            <% end %>
         </div>
-        <br>
-        <!-- <%= f.label :password %> -->
-        <div class="input-group">
-            <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
+<!--
+<div class="container col-xl-10 col-xxl-8 px-4 py-5">
+    <div class="row align-items-center g-lg-5 py-5">
+        <div class="col-lg-7 text-center text-lg-start">
+            <h1 class="display-4 fw-bold lh-1 mb-3">The Yarket Place</h1>
+            <p class="col-lg-10 fs-4">
+                Welcome to Yarket Place! This is a platform for students to trade their used furniture in New Haven. 
+                Do not throw away your furniture! Earn money and save the planet. Do not go to IKEA before checking 
+                out The Yarket Place! Why would you pay more if you can spend less for the same thing?
+            </p>
         </div>
-        <br>
-        <div class="d-grid gap-2 col-6 mx-auto">
-            <%= f.submit "Sign in", class: "btn btn-primary" %>
+
+        <div class="card" id="signin">
+            <div class="welcome">
+                <h5><b>The Yarket Place</b></h5>
+            </div>
+            <hr>
+            <p class="heading">Sign in</p>
+
+            <%= form_with scope: :user, url: signin_path do |f| %>
+                <div class="input-group">
+                    <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
+                </div>
+                <br>
+                <div class="input-group">
+                    <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
+                </div>
+                <br>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <%= f.submit "Sign in", class: "btn btn-primary" %>
+                </div>
+                <p>New user? <a href="/signup">Sign up</a></p>
+            <% end %>
         </div>
-        <p>New user? <a href="/signup">Sign up</a></p>
-    <% end %>
+    <div>
 </div>
+-->

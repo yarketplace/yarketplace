@@ -1,0 +1,49 @@
+<%= stylesheet_link_tag "/stylesheets/user-form" %>
+
+<div class="card">
+    <% if params[:action] == "new" %>
+        <div class="welcome">
+            <h5><b>The Yarket Place</b></h5>
+        </div>
+        <hr>
+        <p class="heading">Create an account</p>
+    <% elsif params[:action] == "edit" %>
+        <p class="heading">Edit Profile</p>
+    <% end %>
+
+<%= form_with(model: @user) do |f| %>
+        <div class="input-group">
+            <%= f.text_field :name, placeholder: "Full Name", class: "form-control" %>
+        </div>
+        <br>
+        <div class="input-group">
+            <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
+        </div>
+        <br>
+        <div class="input-group">
+            <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
+            <%= f.password_field :password_confirmation, placeholder: "Confirm Password", class: "form-control" %>
+        </div>
+        <br>
+        <div class="input-group">
+            <%= f.telephone_field :phone_number, placeholder: "Phone Number", class: "form-control" %> <!-- is value returned as integer? -->
+        </div>
+        <br>
+        <%= f.label :location, "Where are you located in New Haven?" %>
+        <%= f.select :location, options_for_select(@user_class.location_options), { include_blank: "Select your location" }, class: "form-select" %>
+        <!--<br><small>If living in a college dormitory, please specify.</small> -->
+        <br>
+        <div class="input-group">
+            <%= f.text_field :address, placeholder: "Street", class: "form-control" %>
+            <%= f.number_field :zip_code, placeholder: "Zip Code", class: "form-control", id: "zip-code" %> <!-- should this be a string? number field has those arrows -->
+        </div>
+        <br>
+        <% if params[:action] == "new" %>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <%= f.submit "Sign up", class: "btn btn-primary" %>
+            </div>
+            <p>Returning user? <a href="/signin">Sign in</a></p>
+        <% elsif params[:action] == "edit" %>
+            <%= f.submit "Update", class: "btn btn-primary" %>
+        <% end %>
+<% end %>

@@ -22,3 +22,25 @@
 .navbar { 
     font-family: 'Open Sans', sans-serif !important;
 }
+
+.card {
+    width: 40rem;
+    margin: 32px auto;
+    padding: 32px;
+    border-radius: 10px;
+}
+
+.btn {
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 8px;
+}
+
+.btn-primary {
+    background-color: #00356B;
+}
+
+.btn-primary:hover {
+    background-color: #00478f;
+}
