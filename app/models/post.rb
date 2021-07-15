@@ -34,4 +34,8 @@ class Post < ApplicationRecord
     def self.total_num_comments
         self.all.count
     end
+
+    def self.order_by_most_recent
+        self.all.order(created_at: :desc)
+    end
 end

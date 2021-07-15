@@ -17,7 +17,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @my_posts.each do |post| %>
+          <% @my_posts.order_by_most_recent.each do |post| %>
               <tr>
                   <td scope="row"><%= post.title %></td>
                   <td><%= post.create_date %></td>

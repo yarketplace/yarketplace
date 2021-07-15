@@ -47,4 +47,8 @@ class User < ApplicationRecord
     def self.total_num_users
         self.all.count
     end
+    # orders an array of user's posts by most recent
+    def order_by_most_recent
+        self.all.order(created_at: :desc)
+    end
 end
