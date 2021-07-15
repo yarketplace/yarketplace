@@ -2,14 +2,6 @@
 
 body {background-color : #00356B;}
 
-.card {
-    width: 50%;
-    width: 40rem;
-    margin: 32px auto;
-    padding: 32px;
-    border-radius: 10px;
-}
-
 .heading {
     margin-top: 1rem;
     font-weight: bolder;

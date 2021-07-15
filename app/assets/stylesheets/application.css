@@ -22,3 +22,11 @@
 .navbar { 
     font-family: 'Open Sans', sans-serif !important;
 }
+
+.card {
+    width: 50%;
+    width: 40rem;
+    margin: 32px auto;
+    padding: 32px;
+    border-radius: 10px;
+}
