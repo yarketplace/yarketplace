@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
 	def create
 		@post = Post.find(params[:post_id])
 
-        user_id = 1
+        user_id = session[:user_id]
         # byebug
         @comment = Comment.create(user_id: user_id, post_id: params[:post_id], content: params[:comment][:content])
 

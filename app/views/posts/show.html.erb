@@ -35,7 +35,12 @@
 	<section class="section comments">
 		<div>
 			<p class="subtitle is-5"><strong><%= @post.comments.count %></strong> Comments</p>
-			<%= render @post.comments %>
+			<br>
+			<div class="container">
+				<%= render @post.comments %>
+			</div>
+			<br>
+			
 			<%= render 'comments/form' %>
 		</div>
 	</section>
