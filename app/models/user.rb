@@ -47,4 +47,9 @@ class User < ApplicationRecord
     def self.total_num_users
         self.all.count
     end
+
+    def create_date
+        date = self.created_at
+        date.strftime("%B %d, %Y")
+    end
 end
