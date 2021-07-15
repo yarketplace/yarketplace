@@ -22,8 +22,10 @@ class PostsController < ApplicationController
         if @post.valid?
             # byebug
             @post.save
-            params[:post][:photo][:image].each do |img|
-                @image = @post.images.create!(uploaded_image: img)
+            if params[:post][:photo]
+                params[:post][:photo][:image].each do |img|
+                    @image = @post.images.create!(uploaded_image: img)
+                end
             end
         redirect_to post_path(@post)
         else
