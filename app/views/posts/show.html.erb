@@ -1,18 +1,21 @@
-<div class="m-5">
-	<h1><%= @post.title %></h1>
-	<br>
+<div class="container">
+	<div class="m-5">
+		<h1><%= @post.title %></h1>
+		<br>
 
-	<!-- Add/Remove Fav button || Edit button-->
-	<% if @post.user.id != current_user.id %>
-		<% if !@post.is_fav?(current_user) %>
-			<%= button_to "Add to Favorites", add_fav_path, params: { post_id: @post.id }, class: "btn btn-primary" %>
+		<!-- Add/Remove Fav button || Edit button-->
+		<% if @post.user.id != current_user.id %>
+			<% if !@post.is_fav?(current_user) %>
+				<%= button_to "Add to Favorites", add_fav_path, params: { post_id: @post.id }, class: "btn btn-primary" %>
+			<% else %>
+				<%= button_to "Remove from Favorites", delete_fav_path, method: 'delete', params: { post_id: @post.id }, class: "btn btn-primary" %>
+			<% end %>
 		<% else %>
-			<%= button_to "Remove from Favorites", delete_fav_path, method: 'delete', params: { post_id: @post.id }, class: "btn btn-primary" %>
+			<%= button_to "Edit Post", edit_post_path, method: 'get', class: "btn btn-primary" %>
 		<% end %>
-	<% else %>
-		<%= button_to "Edit Post", edit_post_path, method: 'get', class: "btn btn-primary" %>
-	<% end %>
+	</div>
 </div>
+
 
 <div class="container">
 	<div class="row row-cols-lg-2">
@@ -24,16 +27,21 @@
 				<li class="list-group-item">Description: <%= @post.desc %></li>
 			</ul>
 		</div>
-
-		<div class="card">
-			<% @post.images.each do |img|%>
-				<%= image_tag img.uploaded_image.variant(resize_to_limit: [nil, 300]) %>
-			<% end %>
-		</div>
+		<% if @post.images.first %>
+			<div class="card">
+				<% @post.images.each do |img|%>
+					<%= image_tag img.uploaded_image.variant(resize_to_limit: [nil, 300]) %>
+				<% end %>
+			</div>
+		<% end %>
 	</div>
 </section>
 
-<%= button_to 'Delete', post_path(@post), method: 'delete', data: { confirm: 'Are you sure?' } %>
+<% if @post.user.id == session[:user_id] %>
+	<%= button_to 'Delete', post_path(@post), method: 'delete', data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+
 
 	<section class="section comments">
 		<div>
