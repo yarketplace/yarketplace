@@ -1,47 +1,63 @@
 <div class="container">
 	<div class="m-5">
-		<h1><%= @post.title %></h1>
-		<br>
-
-		<!-- Add/Remove Fav button || Edit button-->
-		<% if @post.user.id != current_user.id %>
-			<% if !@post.is_fav?(current_user) %>
-				<%= button_to "Add to Favorites", add_fav_path, params: { post_id: @post.id }, class: "btn btn-primary" %>
+		<div class="d-flex justify-content-between">
+			<h1><%= @post.title %></h1>
+			<!-- Add/Remove Fav button || Edit button-->
+			<% if @post.user.id != current_user.id %>
+				<% if !@post.is_fav?(current_user) %>
+					<%= button_to "Add to Favorites", add_fav_path, params: { post_id: @post.id }, class: "btn btn-primary" %>
+				<% else %>
+					<%= button_to "Remove from Favorites", delete_fav_path, method: 'delete', params: { post_id: @post.id }, class: "btn btn-primary" %>
+				<% end %>
 			<% else %>
-				<%= button_to "Remove from Favorites", delete_fav_path, method: 'delete', params: { post_id: @post.id }, class: "btn btn-primary" %>
+				<div class="d-flex">
+					<%= button_to "Edit Post", edit_post_path, method: 'get', class: "btn btn-primary me-2" %>
+					<% if @post.user.id == session[:user_id] %>
+						<%= button_to 'Delete', post_path(@post), method: 'delete', data: { confirm: 'Are you sure?' }, class: "btn btn-secondary" %>
+					<% end %>
+				</div>
 			<% end %>
-		<% else %>
-			<%= button_to "Edit Post", edit_post_path, method: 'get', class: "btn btn-primary" %>
-		<% end %>
+		</div>
 	</div>
 </div>
 
 
 <div class="container">
-	<div class="row d-flex">
-		<div class="card p-3">
-			<ul class="list-group list-group-flush">
-				<li class="list-group-item">Poster: <%= @post.user.name %></li> 
-				<li class="list-group-item">Cateory: <%= @post.category %></li>
-				<li class="list-group-item">Price: $<%= @post.price %></li>
-				<li class="list-group-item">Description: <%= @post.desc %></li>
-			</ul>
-		</div>
-		<% if @post.images.first %>
-			<div class="card">
-				<% @post.images.each do |img|%>
-					<%= image_tag img.uploaded_image.variant(resize_to_limit: [nil, 300]) %>
-				<% end %>
+	<% if @post.images.first %>
+		<div class="row row-cols-1 row-cols-md-2 d-flex">
+			<div class="col">
+				<div class="card p-3 w-auto">
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">Poster: <%= @post.user.name %></li> 
+						<li class="list-group-item">Cateory: <%= @post.category %></li>
+						<li class="list-group-item">Price: $<%= @post.price %></li>
+						<li class="list-group-item">Description: <%= @post.desc %></li>
+					</ul>
+				</div>
 			</div>
-		<% end %>
-	</div>
+			<div class="col">
+				<div class="card p-3">
+					<% @post.images.each do |img|%>
+						<%= image_tag img.uploaded_image %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	<% else %>
+		<div class="row row-cols-1 row-cols-md-1 d-flex">
+			<div class="col">
+				<div class="card p-3 w-auto">
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">Poster: <%= @post.user.name %></li> 
+						<li class="list-group-item">Cateory: <%= @post.category %></li>
+						<li class="list-group-item">Price: $<%= @post.price %></li>
+						<li class="list-group-item">Description: <%= @post.desc %></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	<% end %>
 </section>
-
-<% if @post.user.id == session[:user_id] %>
-	<%= button_to 'Delete', post_path(@post), method: 'delete', data: { confirm: 'Are you sure?' } %>
-<% end %>
-
-
 
 	<section class="section comments mt-5">
 		<div>
@@ -55,4 +71,3 @@
 			<%= render 'comments/form' %>
 		</div>
 	</section>
-</div>

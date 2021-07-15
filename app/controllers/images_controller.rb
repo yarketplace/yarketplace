@@ -13,7 +13,7 @@ class ImagesController < ApplicationController
 
     def create
         image = Image.new(image_params)
-        
+        byebug
         if image.save
             redirect_to image_path(image)
         else
