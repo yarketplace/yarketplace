@@ -16,6 +16,7 @@ class PostsController < ApplicationController
 
     def create
         @post = Post.new(post_params)
+        # post author is the current user (not needed in form anymore)
         @post.user = current_user
         
         if @post.valid?
