@@ -14,10 +14,6 @@ class User < ApplicationRecord
     validates :phone_number, presence: true
     validates :name, presence: true
 
-
-
-
-
     def self.location_options
         [
             ["East Rock"], # what other off-campus areas?
@@ -38,5 +34,17 @@ class User < ApplicationRecord
             ["Yale College: Trumball", "Trumball"],
             ["Other"]
         ]
+    end
+
+    def num_faved_posts
+        self.favs.count
+    end
+
+    def faved_posts_names
+        self.posts.map { |post| post.is_fav?(self) }
+    end
+
+    def self.total_num_users
+        self.all.count
     end
 end
