@@ -50,5 +50,9 @@ class User < ApplicationRecord
     # orders an array of user's posts by most recent
     def order_by_most_recent
         self.all.order(created_at: :desc)
+
+    def create_date
+        date = self.created_at
+        date.strftime("%B %d, %Y")
     end
 end

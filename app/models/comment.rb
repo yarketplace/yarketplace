@@ -13,4 +13,9 @@ class Comment < ApplicationRecord
     def total_words
         self.split.count
     end
+    
+    def create_date
+        date = self.created_at
+        date.strftime("%B %d, %Y")
+    end
 end
