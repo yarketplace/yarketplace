@@ -5,7 +5,7 @@
 <!-- add error display -->
 
 <!-- <p><b>Upload a post below</b></p> -->
-<div class="form-container">
+<div class="card">
     <% if params[:action] == "new" %>
         <p class="heading">New Post</p>
     <% elsif params[:action] == "edit" %>
@@ -13,45 +13,48 @@
     <% end %>
 
 <!-- <p><b>Upload a post below</b></p> -->
-<%= form_with(model: @post) do |f| %>
-    <div class="input-group">
-        <span class="input-group-text"><%= f.label :user_id %></span>
-        <%= f.collection_select :user_id, @users, :id, :name, {}, class: "form-select" %> <br>
-    </div>
-    <br>
-    <div class="input-group">
-        <span class="input-group-text"><%= f.label :title %></span>
-        <%= f.text_field :title, class: "form-control" %>
-    </div>
-    <br>
-    <div class="input-group">
-        <span class="input-group-text"><%= f.label :category %></span>
-        <%= f.select :category, Post.categories, {include_blank: "Select a category"}, class: "form-select"%>
-    </div>
-    <br>
-    <%= f.fields_for :photo do |t| %>
-        <%= t.label :upload_photo %>
-        <div class="input-group mb-3">
-            <%= t.file_field :image, :multiple => true, class: "form-control", id:"inputGroupFile02" %>
+    <%= form_with(model: @post) do |f| %>
+        <!--
+        <div class="input-group">
+            <span class="input-group-text"><%= f.label :user_id %></span>
+            <%= f.collection_select :user_id, @users, :id, :name, {}, class: "form-select" %> <br>
         </div>
-    <% end %>
-    <br>
-    <div class="input-group">
-        <span class="input-group-text"><%= f.label :price %></span>
-        <%= f.number_field :price, value: number_to_currency(f.object.price.to_f, delimiter: '', unit: ''), :step => 0.01, class: "form-control" %>
-    </div>
-    <br>
-    <div class="input-group">
-        <span class="input-group-text"><%= f.label :desc, "Description" %></span>
-        <%= f.text_area :desc, class: "form-control" %>
-    </div>
-    <br>
-    <div class="d-grid gap-2 col-6 mx-auto">
-        <% if params[:action] == "new" %>
-            <%= f.submit "Create Post!", class: "btn btn-primary" %>
-        <% elsif params[:action] == "edit" %>
-            <%= f.submit "Edit Post!", class: "btn btn-primary" %>
+        -->
+        <br>
+        <div class="input-group">
+            <span class="input-group-text"><%= f.label :title %></span>
+            <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-text"><%= f.label :category %></span>
+            <%= f.select :category, Post.categories, {include_blank: "Select a category"}, class: "form-select"%>
+        </div>
+        <br>
+        <%= f.fields_for :photo do |t| %>
+            <%= t.label :upload_photo %>
+            <div class="input-group mb-3">
+                <%= t.file_field :image, :multiple => true, class: "form-control", id:"inputGroupFile02" %>
+            </div>
         <% end %>
-    </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-text"><%= f.label :price %></span>
+            <%= f.number_field :price, value: number_to_currency(f.object.price.to_f, delimiter: '', unit: ''), :step => 0.01, class: "form-control" %>
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-text"><%= f.label :desc, "Description" %></span>
+            <%= f.text_area :desc, class: "form-control" %>
+        </div>
+        <br>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <% if params[:action] == "new" %>
+                <%= f.submit "Create Post!", class: "btn btn-primary" %>
+            <% elsif params[:action] == "edit" %>
+                <%= f.submit "Edit Post!", class: "btn btn-primary" %>
+            <% end %>
+        </div>
+        <p><%= link_to "Cancel", home_path %></p>
     <% end %>
 </div>

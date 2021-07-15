@@ -1,12 +1,11 @@
-<div class="box">
-  <article class="media">
-    <div class="media-content">
-      <div class="content">
+<div class="container">
         <p>
-          <%= comment.content %>
+          <%= comment.content %> | <%= comment.user.name %>
         </p>
-      </div>
-    </div>
-  </article>
+        <% if comment != @post.comments.last %>
+          <hr>
+        <% end %>
+
+
 
 </div>
