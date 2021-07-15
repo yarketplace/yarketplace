@@ -20,6 +20,6 @@ Rails.application.routes.draw do
   get '/signout', to: 'sessions#signout'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :images, only: [:index, :show, :new, :create]
+  # resources :images, only: [:index, :show, :new, :create]
   root 'users#home'
 end
