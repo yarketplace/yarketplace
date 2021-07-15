@@ -7,7 +7,7 @@
 				<% if !@post.is_fav?(current_user) %>
 					<%= button_to "Add to Favorites", add_fav_path, params: { post_id: @post.id }, class: "btn btn-primary" %>
 				<% else %>
-					<%= button_to "Remove from Favorites", delete_fav_path, method: 'delete', params: { post_id: @post.id }, class: "btn btn-primary" %>
+					<%= button_to "Remove from Favorites", delete_fav_path, method: 'delete', params: { post_id: @post.id }, class: "btn btn-secondary" %>
 				<% end %>
 			<% else %>
 				<div class="d-flex">
