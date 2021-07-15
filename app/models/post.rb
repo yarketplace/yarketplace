@@ -26,4 +26,12 @@ class Post < ApplicationRecord
         date = self.created_at
         date.strftime("%B %d, %Y")
     end
+
+    def num_comments
+        self.comment.count
+    end
+
+    def self.total_num_comments
+        self.all.count
+    end
 end
