@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+    before_action :redirect_if_not_signed_in, only: [:destroy]
+
     def new
     end
 

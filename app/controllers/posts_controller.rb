@@ -1,13 +1,12 @@
 class PostsController < ApplicationController
+    before_action :redirect_if_not_signed_in
 
     def index
         @posts = Post.all
-        @current_user = User.find_by(id: session[:user_id])
     end
 
     def show
         @post = Post.find_by(id: params[:id])
-        @current_user = User.find_by(id: session[:user_id])
     end
 
     def new
@@ -16,10 +15,12 @@ class PostsController < ApplicationController
     end
 
     def create
-        @post = Post.create(post_params)
+        @post = Post.new(post_params)
+        @post.user = current_user
         
         if @post.valid?
             # byebug
+            @post.save
             params[:post][:photo][:image].each do |img|
                 @image = @post.images.create!(uploaded_image: img)
             end
@@ -45,6 +46,7 @@ class PostsController < ApplicationController
     private
 
     def post_params
-        params.require(:post).permit(:user_id, :title, :category, :price, :desc, image_attributes: [:image])
+        params.require(:post).permit(:title, :category, :price, :desc, image_attributes: [:image])
+        # ^ got rid of user_id
     end
 end

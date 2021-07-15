@@ -14,10 +14,12 @@
 
 <!-- <p><b>Upload a post below</b></p> -->
     <%= form_with(model: @post) do |f| %>
+        <!--
         <div class="input-group">
             <span class="input-group-text"><%= f.label :user_id %></span>
             <%= f.collection_select :user_id, @users, :id, :name, {}, class: "form-select" %> <br>
         </div>
+        -->
         <br>
         <div class="input-group">
             <span class="input-group-text"><%= f.label :title %></span>
