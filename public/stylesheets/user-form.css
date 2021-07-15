@@ -2,6 +2,14 @@
 
 body {background-color : #00356B;}
 
+.card {
+    width: 50%;
+    width: 40rem;
+    margin: 32px auto;
+    padding: 32px;
+    border-radius: 10px;
+}
+
 .heading {
     margin-top: 1rem;
     font-weight: bolder;
@@ -16,7 +24,7 @@ body {background-color : #00356B;}
     text-align: center;
 }
 
-.form-container {
+/* .form-container {
     background-color: white;
     box-sizing: border-box;
     width: 40rem;
@@ -25,7 +33,7 @@ body {background-color : #00356B;}
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-}
+} */
 
 /* input fields */
 /* input[type=tel], input[type=number], textarea {
