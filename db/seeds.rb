@@ -12,7 +12,7 @@ puts "seeding . . . "
 end
 
 10.times do 
-    Post.create(user_id: User.ids.sample, title: Faker::GreekPhilosophers.quote, category: Post.categories.sample, price: rand(0.01..99.99), desc: Faker::Hacker.say_something_smart)
+    Post.create(user_id: User.ids.sample, title: Faker::GreekPhilosophers.quote, category: Post.categories.sample, price: rand(0.01..99.99).round(2), desc: Faker::Hacker.say_something_smart)
 end
 
 10.times do 

@@ -31,7 +31,7 @@ class Post < ApplicationRecord
         self.comments.count
     end
 
-    def self.total_num_comments
+    def self.total_num_posts
         self.all.count
     end
     # return array of all posts ordered by most recent
@@ -43,5 +43,17 @@ class Post < ApplicationRecord
         if self.is_fav?(user)
             Fav.find_by(post_id: self.id).create_date
         end
+    end
+
+    def get_user_name
+        self.user.name
+    end
+
+    def get_user_email
+        self.user.email
+    end
+
+    def get_user_phone
+        self.user.phone_number
     end
 end

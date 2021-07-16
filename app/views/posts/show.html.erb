@@ -29,8 +29,10 @@
 			<div class="col">
 				<div class="card p-3 w-auto">
 					<ul class="list-group list-group-flush">
-						<li class="list-group-item">Poster: <%= @post.user.name %></li> 
-						<li class="list-group-item">Cateory: <%= @post.category %></li>
+						<li class="list-group-item">Poster: <%= @post.get_user_name %></li> 
+						<li class="list-group-item">Poster email: <%= @post.get_user_email %></li>
+						<li class="list-group-item">Poster phone number: <%= @post.get_user_phone %></li>
+						<li class="list-group-item">Category: <%= @post.category %></li>
 						<li class="list-group-item">Price: $<%= @post.price %></li>
 						<li class="list-group-item">Description: <%= @post.desc %></li>
 					</ul>
@@ -40,7 +42,7 @@
 				<div class="card p-3">
 					<% @post.images.each do |img|%>
 						<%= image_tag img.uploaded_image %>
-						<caption>Uploaded: <%= img.create_date %></caption>
+						<small class="mt-2">Picture Uploaded: <%= img.create_date %></small>
 					<% end %>
 				</div>
 			</div>
@@ -50,8 +52,10 @@
 			<div class="col">
 				<div class="card p-3 w-auto">
 					<ul class="list-group list-group-flush">
-						<li class="list-group-item">Poster: <%= @post.user.name %></li> 
-						<li class="list-group-item">Cateory: <%= @post.category %></li>
+						<li class="list-group-item">Poster: <%= @post.get_user_name %></li> 
+						<li class="list-group-item">Poster email: <%= @post.get_user_email %></li>
+						<li class="list-group-item">Poster phone number: <%= @post.get_user_phone %></li>
+						<li class="list-group-item">Category: <%= @post.category %></li>
 						<li class="list-group-item">Price: $<%= @post.price %></li>
 						<li class="list-group-item">Description: <%= @post.desc %></li>
 					</ul>
@@ -63,7 +67,7 @@
 
 	<section class="section comments">
 		<div>
-			<p class="subtitle is-5"><strong><%= @post.num_comments %></strong> Comments</p>
+			<p class="subtitle is-5 mt-2"><strong><%= @post.num_comments %></strong> Comments</p>
 			<br>
 			<div class="container">
 				<%= render @post.comments %>
