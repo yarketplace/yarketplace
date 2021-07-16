@@ -1,8 +1,8 @@
 class Fav < ApplicationRecord
     belongs_to :user
     belongs_to :post
-
-    def self.num_total_favs
+    # show num of favs sitewide 
+    def self.total_num_favs
         self.all.count
     end
     # display comment create date

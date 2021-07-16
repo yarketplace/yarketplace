@@ -1,5 +1,5 @@
 <div class="container mt-4">
-    <h2 class="pb-2 border-bottom">Hello there!</h2>
+    <h2 class="pb-2 border-bottom">Hello there, <%= @user.name %>!</h2>
     <div class="row g-4 py-5 row-cols-lg-3">
       <div class="col d-flex align-items-start">
         <div>
@@ -68,6 +68,9 @@
                       </li>
                     <% end %>
                 </ul>
+                <% if @user.faved_posts.count == 0 %>
+                  <small class="text-center mt-3">You have no favorited posts yet.</small>
+                <% end %>
             </div>
         </div>
     </div>

@@ -1,39 +1,54 @@
-<div class="container m-5 pe-4 ps-4">
+<div class="container mt-4 mb-4 mx-auto pe-4 ps-4">
     <div class="col">
         <div class="row">
             <div class="d-flex justify-content-between">
-                <h1>Yarket Posts</h1>
+                <h1>Yarket Posts</h1> 
                 <%= button_to "Create New Post", new_post_path, method: 'get', class: "btn btn-primary ms-5" %>
             </div>
         </div>
 
         <div class="row mt-2">
             <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Fav</th>
-                    <th class="w-75" scope="col">Title</th>
-                    <th class="w-25" scope="col">Created</th>
-                    <th class="w-auto" scope="col">Comments</th>
-                    <th class="w-auto" scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% @posts.order_by_most_recent.each do |post| %>
+                <thead>
                     <tr>
-                        <td><%= "★" if post.is_fav?(current_user) %></td>
-                        <td><%= post.title %></td>
-                        <td><%= post.create_date %></td>
-                        <td><%= post.num_comments %></td>
-                        <td>
-                            <div class="d-flex">
-                                <%= button_to "View", post_path(post), method: 'get', class: "btn btn-primary me-2" %>
-                            </div>
-                        </td>
+                        <th scope="col">Fav</th>
+                        <th class="w-75" scope="col">Title</th>
+                        <th class="w-25" scope="col">Created</th>
+                        <th class="w-auto" scope="col">Comments</th>
+                        <th class="w-auto" scope="col">Action</th>
                     </tr>
-                <% end %>
-            </tbody>
+                </thead>
+                <tbody>
+                    <% @posts.order_by_most_recent.each do |post| %>
+                        <tr>
+                            <td>
+                                <% if post.is_fav?(current_user) %>
+                                    ★ 
+                                <% else %>
+                                    ☆
+                                <% end %>
+                            </td>
+                            <td><%= post.title %></td>
+                            <td><%= post.create_date %></td>
+                            <td><%= post.num_comments %></td>
+                            <td>
+                                <div class="d-flex">
+                                    <%= button_to "View", post_path(post), method: 'get', class: "btn btn-primary me-2" %>
+                                </div>
+                            </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+
             </table>
+                    
+
         </div>
+
+        <div class="row">
+            
+            <small class="text-end pe-6"><%= Post.total_num_posts %> posts, <%= Comment.total_num_comments %> comments,  <%= Fav.total_num_favs %> favs, and <%= Image.total_num_images %> images in total</small>
+           
+        </div>  
     </div>
 </div>
