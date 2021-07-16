@@ -1,51 +1,32 @@
-# Rails Project Mode
+# README 
 
-Congratulations, we are starting project mode! This means that you'll spend the rest of the week working in a team to build out a Rails project of your choice. There will be some lectures and new material scheduled throughout the week, but the bulk of the time will be working on your projects.
+# THE YARKET PLACE 
 
+## I. Introduction 
 
-Some example project ideas from previous classes:
+Welcome! “**The Yarket Place**” is a platform where students can freely exchange their products on/off campus. It was created (1) to utilize used furniture and textbooks; (2) to provide an easy market platform for students; (3) to foster a sense of community among members of the Yale Community. With these purposes in mind, **The Yarket Place** is open only to users with Yale email accounts. Hope that you enjoy this app!    
 
-1. [Regifter](http://regifter.herokuapp.com/) - A gift trading app that lets users upload images and descriptions of unwanted gifts and propose trades with other users.
-1. [Flatiron Postcard](http://flatironpostcard.herokuapp.com/) - An app that lets you create and send custom postcards to friends and family
-1. [ROBYStuff - Rent or Buy Your Stuff](https://stark-falls-90133.herokuapp.com/listings)
-1. [dérive - Your Travel Companion to Destinations Across the Globe](https://derive-fis.herokuapp.com/)
+## II. How to install and run this application
 
+Clone this repo into your local computer
+Once you are in the directory, type the following command in your terminal. 
+```bundle install
+This application utilizes [ImageMagick](https://imagemagick.org/), so you may need to run install this software with the following command
+For Mac:
+```brew install imagemagick
+For Linux:
+```sudo apt-get install imagemagick
+Type the following command into your terminal
+```rails db:migrate db:seed
+View the application in your browser with
+```rails server
 
-## Requirements:
+## III. License 
 
-1. You should have at least five models. You do not have to have all of these built out on day one, but by the end of the week, you should have at least five models (Join tables count!).
-2. Some methods in your models. There should be at least twenty methods total in your models. These are to be used to better extract data from your tables. If all of your logic is in your controller, you're making a mistake.  Talk to an instructor if you're confused about the type of methods that might go on your models.
-3. No APIs until you get approval from an instructor.  If your app completely works with dummy data and you have time left over, you can ask an instructor if you can start working with an API.
-4. An analytics page - The main learning goal of this is to get you to write some interesting ActiveRecord queries.
-5. No JavaScript. Stay focused on Rails for this project - we'll have plenty of time to cover JS topics. 
+Copyright [2021] [Anh Dang, Kyle Andruczk, Taek Jin Han]
 
-## Project Task Steps
-- Come up with an idea, model out your domain. Get your project pitch approved. [Here](https://docs.google.com/document/d/1GfTDCwFGCAnvEhxhzfwbd4OHJZCQgsii0PLX6x_QCMA/edit) is the template for the project pitch.
-- Build out features. 
-- Start styling and cleaning up issues. 
-- Present to your cohort!
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
-# README
+    http://www.apache.org/licenses/LICENSE-2.0
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
