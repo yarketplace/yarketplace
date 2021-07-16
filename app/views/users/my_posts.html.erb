@@ -1,4 +1,4 @@
-<div class="container m-5 pe-4 ps-4">
+<div class="container mt-4 mb-4 mx-auto pe-4 ps-4">
   <div class="column">
     <div class="row">
       <div class="d-flex justify-content-between">
@@ -32,6 +32,10 @@
           <% end %>
         </tbody>
       </table>
+
+      <% if @my_posts.count == 0 %>
+        <p class="text-center">You have no favorited posts yet.</p>
+      <% end %>
     </div>
   </div>
 </div>
