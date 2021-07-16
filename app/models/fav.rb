@@ -1,7 +1,7 @@
 class Fav < ApplicationRecord
     belongs_to :user
     belongs_to :post
-
+    # show num of favs sitewide 
     def self.total_num_favs
         self.all.count
     end

@@ -30,7 +30,7 @@ class Post < ApplicationRecord
     def num_comments
         self.comments.count
     end
-
+    # show num of posts sitewide 
     def self.total_num_posts
         self.all.count
     end

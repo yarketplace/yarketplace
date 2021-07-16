@@ -1,7 +1,7 @@
 class Comment < ApplicationRecord
     belongs_to :user
     belongs_to :post
-
+    # show num of comments sitewide 
     def self.total_num_comments
         self.all.count
     end
