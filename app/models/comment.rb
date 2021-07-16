@@ -6,11 +6,21 @@ class Comment < ApplicationRecord
         self.all.count
     end
 
+    # display total char of comment
     def total_characters
-        self.count
+        self.content.length
     end
-
+    # display total words in comment
     def total_words
-        self.split.count
+        self.content.split.count
+    end
+    # display comment create date
+    def create_date
+        date = self.created_at
+        date.strftime("%B %d, %Y")
+    end
+    # display user who created comment
+    def commenter
+        self.user.name
     end
 end

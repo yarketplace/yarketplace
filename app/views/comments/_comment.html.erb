@@ -1,7 +1,7 @@
 <div class="container">
-        <p>
-          <%= comment.content %> | <%= comment.user.name %>
-        </p>
+        <p><%= comment.content %></p>
+        <small><b>by <%= comment.commenter %></b> on <%= comment.create_date %></small>
+        <small>(<%= comment.total_words %> words, <%= comment.total_characters %> characters)</small>
         <% if comment != @post.comments.last %>
           <hr>
         <% end %>

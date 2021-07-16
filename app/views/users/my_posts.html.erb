@@ -11,15 +11,17 @@
         <thead>
           <tr>
             <th class="w-75" scope="col">Title</th>
-            <th scope="col">Created</th>
+            <th class="w-25" scope="col">Created</th>
+            <th class="w-auto" scope="col">Comments</th>
             <th class="w-auto" scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          <% @my_posts.each do |post| %>
+          <% @my_posts.order_by_most_recent.each do |post| %>
               <tr>
                   <td scope="row"><%= post.title %></td>
                   <td><%= post.create_date %></td>
+                  <td><%= post.num_comments %></td>
                   <td>
                       <div class="d-flex">
                           <%= button_to "View", post_path(post), method: 'get', class: "btn btn-primary me-2" %>

@@ -6,5 +6,10 @@ class Image < ApplicationRecord
     def self.total_num_images
         self.all.count
     end
+    # display image create date
+    def create_date
+        date = self.uploaded_image.created_at
+        date.strftime("%B %d, %Y")
+    end
 
 end
