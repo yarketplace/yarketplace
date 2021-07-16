@@ -11,12 +11,15 @@ puts "seeding . . . "
     User.create(name: Faker::Name.name, location: Faker::Address.city, address: Faker::Address.street_address, zip_code: Faker::Address.zip, phone_number: rand(1111111111..9999999999), email: Faker::Internet.email, password_digest: "test")
 end
 
-10.times do 
-    Post.create(user_id: User.ids.sample, title: Faker::GreekPhilosophers.quote, category: Post.categories.sample, price: rand(0.01..99.99), desc: Faker::Hacker.say_something_smart)
-end
+Post.create(user_id: User.ids.sample, title: "Brown couch looking for new home!", category: "Furniture", price: rand(0.01..99.99), desc: "Leave a comment if you're interested. I will reach out to discuss details.")
+Post.create(user_id: User.ids.sample, title: "Unused pink lamp", category: "Furniture", price: rand(0.01..99.99), desc: "Condition is still new.")
+Post.create(user_id: User.ids.sample, title: "Chemistry textbooks need new owners", category: "Books", price: rand(0.01..99.99), desc: "Hi everyone! I have a 4-5 chemistry textbooks that I no longer need. Reach out to me for more details!")
+Post.create(user_id: User.ids.sample, title: "Looking to give away some clothes", category: "Other", price: rand(0.01..99.99), desc: "I have a lot of clothes and my closet is running out of room. Happy to give these away for free.")
 
-10.times do 
-    Comment.create(user_id: User.ids.sample, post_id: Post.ids.sample, content: Faker::ChuckNorris.fact )
-end
+
+Comment.create(user_id: User.ids.sample, post_id: Post.ids.sample, content: "I'm interested!" )
+Comment.create(user_id: User.ids.sample, post_id: Post.ids.sample, content: "Has someone already claimed this?" )
+Comment.create(user_id: User.ids.sample, post_id: Post.ids.sample, content: "Am interested, happy to discuss costs!" )
+Comment.create(user_id: User.ids.sample, post_id: Post.ids.sample, content: "I'm interested." )
 
 puts "done."

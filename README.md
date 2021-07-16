@@ -4,21 +4,32 @@
 
 ## I. Introduction 
 
-Welcome! “*The Yarket Place*” is a platform where students can freely exchange their products on/off campus. It was created (1) to utilize used furniture and textbooks; (2) to provide an easy market platform for students; (3) to foster a sense of community among members of the Yale Community. With these purposes in mind, *The Yarket Place* is open only to users with Yale email accounts. Hope that you enjoy this app!    
+Welcome! “**The Yarket Place**” is a platform where students can freely exchange their products on/off campus. It was created (1) to utilize used furniture and textbooks; (2) to provide an easy market platform for students; (3) to foster a sense of community among members of the Yale Community. With these purposes in mind, "**The Yarket Place**" is open only to users with Yale email accounts. Hope you enjoy **Yarketing!**
 
 ## II. How to install and run this application
-Clone this repo into your local computer
-Once you are in the directory, type the following command in your terminal. 
-```bundle install
-This application utilizes [ImageMagick](https://imagemagick.org/), so you may need to run install this software with the following command
-For Mac:
-```brew install imagemagick
-For Linux:
-```sudo apt-get install imagemagick
-Type the following command into your terminal
-```rails db:migrate db:seed
-View the application in your browser with
-```rails server
+
+1. Clone this repo into your local computer
+2. Once you are in the directory, type the following command in your terminal. 
+```
+bundle install
+```
+3. This application utilizes [ImageMagick](https://imagemagick.org/), so you may need to run install this software with the following command
+- For Mac:
+```
+brew install imagemagick
+```
+- For Linux:
+```
+sudo apt-get install imagemagick
+```
+4. Type the following command into your terminal
+```
+rails db:migrate db:seed
+```
+5. View the application in your browser with
+```
+rails server
+```
 
 ## III. License 
 
