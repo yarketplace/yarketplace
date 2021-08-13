@@ -6,9 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+puts "deleting previous data ... posts, comments, users"
+Post.destroy_all
+Comment.destroy_all
+User.destroy_all
+
 puts "seeding . . . "
 10.times do 
-    User.create(name: Faker::Name.name, location: Faker::Address.city, address: Faker::Address.street_address, zip_code: Faker::Address.zip, phone_number: rand(1111111111..9999999999), email: Faker::Internet.email, password_digest: "test")
+    User.create(name: Faker::Name.name, location: Faker::Address.city, address: Faker::Address.street_address, zip_code: Faker::Address.zip, phone_number: Faker::PhoneNumber.phone_number, email: Faker::Internet.email, password_digest: "test")
 end
 
 Post.create(user_id: User.ids.sample, title: "Brown couch looking for new home!", category: "Furniture", price: rand(0.01..99.99).round(2), desc: "Leave a comment if you're interested. I will reach out to discuss details.")
